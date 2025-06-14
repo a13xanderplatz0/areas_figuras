@@ -19,8 +19,8 @@ float areaCuadrado(float* lado, float*) {
 
 // Función que recibe puntero a función, array de parámetros y array de nombres
 void ejecutar(float (*funcion[])(float*, float*), float* parametros, const char* nombres[]) {
-    // Definimos el número de figuras
-    const int numFiguras = 4;  // Rectángulo, Triángulo, Círculo y Cuadrado
+    
+    const int numFiguras = 4;  // # figuras Rectangulo, Triangulo, Circulo y Cuadrado
     
     for(int i = 0; i < numFiguras; i++) {
         // Usamos directamente la función del array
