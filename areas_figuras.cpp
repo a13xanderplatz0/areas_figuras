@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-// Funciones de calculo de areas
+
 int areaRectangulo(int base, int altura) {
     return base * altura;
 }
@@ -21,7 +21,7 @@ int areaCuadrado(int lado, int ){
 
 // Funcion que recibe puntero a funcion, array de parametros y array de nombres
 void ejecutar(int (*funcion)(int, int), int params[], std::string nombres[]) {
-    // Imprimimos el nombre de la figura
+    
     std::cout << "Area del " << nombres[0] << ": ";
     
     // Llamamos a la funcion con los parametros
