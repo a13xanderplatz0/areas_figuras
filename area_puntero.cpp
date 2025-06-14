@@ -32,14 +32,14 @@ void ejecutar(float (*funcion[])(float*, float*), float* parametros, const char*
 }
 
 int main() {
-    // Definimos los parámetros para todas las figuras en un solo array
+    // Definimos los parámetros en un solo array
     float params[] = {5.0f, 3.0f,  // Rectángulo (base, altura)
                      5.0f, 3.0f,  // Triángulo (base, altura)
                      5.0f, 0.0f,  // Círculo (radio, placeholder)
                      5.0f, 5.0f}; // Cuadrado (lado, lado)
 
     // Definimos los nombres
-    const char* nombres[] = {"Rectángulo", "Triángulo", "Círculo", "Cuadrado"};
+    const char* nombres[] = {"Rectangulo", "Triangulo", "Círculo", "Cuadrado"};
 
     // Definimos el array de funciones
     float (*funciones[])(float*, float*) = {areaRectangulo, areaTriangulo, areaCirculo, areaCuadrado};
