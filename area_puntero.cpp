@@ -1,6 +1,6 @@
 //https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm
 #include <iostream>
-
+using namespace std;
 
 float areaRectangulo(float* base, float* altura) {
     return (*base) * (*altura);
@@ -18,35 +18,26 @@ float areaCuadrado(float* lado, float*) {
     return (*lado) * (*lado);
 }
 
-// Función que recibe puntero a función, array de parámetros y array de nombres
 void ejecutar(float (*funcion[])(float*, float*), float* parametros, const char* nombres[]) {
-    
-    const int numFiguras = 4;  // # figuras Rectangulo, Triangulo, Circulo y Cuadrado
-    
+    const int numFiguras = 4;
     for(int i = 0; i < numFiguras; i++) {
-        // Usamos directamente la función del array
-        std::cout << "Área del " << nombres[i] << ": ";
-        
-        // Llamamos a la función con los parámetros correctos
-        std::cout << funcion[i](&parametros[i*2], &parametros[i*2+1]) << std::endl;
+        cout << "Area del " << nombres[i]
+             << " con " << parametros[i*2] << " y " << parametros[i*2+1] << " :" << endl;
+        cout << funcion[i](&parametros[i*2], &parametros[i*2+1]) << endl;
     }
 }
 
 int main() {
-    // Definimos los parámetros en un solo array
-    float params[] = {5.0f, 3.0f,  // Rectángulo (base, altura)
-                     5.0f, 3.0f,  // Triángulo (base, altura)
-                     5.0f, 0.0f,  // Círculo (radio, placeholder)
-                     5.0f, 5.0f}; // Cuadrado (lado, lado)
+ float parametros[] = {8.0f, 2.0f,   // Rectángulo (base, altura)
+                      7.0f, 4.0f,   // Triángulo (base, altura)
+                      3.0f, 0.0f,   // Círculo (radio, placeholder)
+                      6.0f, 6.0f};  // Cuadrado (lado, lado)
 
-    // Definimos los nombres
-    const char* nombres[] = {"Rectangulo", "Triangulo", "Círculo", "Cuadrado"};
+    const char* nombres[] = {"Rectangulo", "Triangulo", "Circulo", "Cuadrado"};
 
-    // Definimos el array de funciones
     float (*funciones[])(float*, float*) = {areaRectangulo, areaTriangulo, areaCirculo, areaCuadrado};
 
-    // Ejecutamos todas las figuras usando un solo array de parámetros
-    ejecutar(funciones, &params[0], nombres);
+    ejecutar(funciones, parametros, nombres);
 
     return 0;
 }
